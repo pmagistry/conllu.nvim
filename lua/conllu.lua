@@ -69,8 +69,8 @@ end
 
 
 local render_tree = function(conllu_str)
-  local src = debug.getinfo(1)['short_src']
-  local dir = string.sub(src,1, string.len("/lua/conllu.lua")* -1)
+  local src = debug.getinfo(1)['source']
+  local dir = string.sub(src,2, string.len("/lua/conllu.lua")* -1)
   local result = vim.fn.system('echo "'..conllu_str..'" | python3 '..dir..'rplugin/python3/conll.py')
   return result
 end
